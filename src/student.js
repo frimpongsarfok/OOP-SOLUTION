@@ -13,15 +13,17 @@ class Student {
   }
   doHomework(objParam){
     if(objParam===undefined){
-
-     if(this.assignments[0].skillLevel<this.skillLevel){
-          this.assignments[0].completed=true;
-          return;
-     }else{
-          this.assignments[0].completed=false;
-              return;
-        }    
-    }
+     for(let assignments of this.assignments){
+      if(assignments.skillLevel<this.skillLevel){
+         assignments.completed=true;
+        return;
+      }else{
+              assignments.completed=false;
+                  return;
+            }    
+        }
+     }
+   
     if(objParam.skillLevel<this.skillLevel && objParam.skillLevel>1){
         objParam.completed=true;
         this.assignments.push(objParam);
